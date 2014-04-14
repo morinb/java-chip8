@@ -6,6 +6,9 @@ package org.bm.chip8;
 public class Counter {
     private int value;
 
+    public int get() {
+        return  value;
+    }
 
     public void reset() {
         value = 0;

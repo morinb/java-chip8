@@ -16,6 +16,7 @@
         <exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
 
         <junit.version>3.8.1</junit.version>
+        <guava.version>16.0.1</guava.version>
     </properties>
 
     <build>
@@ -44,6 +45,12 @@
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
         </dependency>
     </dependencies>
 </project>

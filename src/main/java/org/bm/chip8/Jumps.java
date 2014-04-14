@@ -53,4 +53,8 @@ public class Jumps implements Constants {
         }
     }
 
+    public void set(int value) {
+        this.jumps[this.jumpNumber] = value;
+    }
+
 }

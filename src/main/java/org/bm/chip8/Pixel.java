@@ -31,6 +31,14 @@ public class Pixel implements Constants{
         this.color = color;
     }
 
+    public void on() {
+        setColor(WHITE);
+    }
+
+    public void off() {
+        setColor(BLACK);
+    }
+
     public int getX() {
         return coordinates.x;
     }

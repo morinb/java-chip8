@@ -1,6 +1,5 @@
 package org.bm.chip8;
 
-import java.awt.Canvas;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -10,15 +9,18 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
+import javax.swing.JPanel;
+
 /**
  * @author Baptiste Morin
  */
-public class Screen extends Canvas implements Constants {
+public class Screen extends JPanel implements Constants {
     private Pixel[][] pixels = new Pixel[SCREEN_WIDTH_IN_PIXEL][SCREEN_HEIGHT_IN_PIXEL];
     private Rectangle clip = null;
     BufferedImage offscreen = Screen.createCompatibleImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
 
     public Screen() {
+        clear();
     }
 
     public static BufferedImage createCompatibleImage(int width, int height, int type) {
@@ -54,14 +56,12 @@ public class Screen extends Canvas implements Constants {
         return pixels;
     }
 
-    public void drawPixel(Pixel p) {
-        clip = new Rectangle(p.getX(), p.getY(), p.getWidth(), p.getHeight());
-        repaint();
+    public Pixel getPixelAt(int x, int y) {
+        return pixels[x][y];
     }
 
     @Override
     public void paint(Graphics g) {
-        super.paint(g);
 
 
         Graphics2D g2 = offscreen.createGraphics();
@@ -86,5 +86,17 @@ public class Screen extends Canvas implements Constants {
         g.dispose();
     }
 
+    public void debugPixels() {
+        for (int y = 0; y < SCREEN_HEIGHT_IN_PIXEL; y++) {
+            for (int x = 0; x < SCREEN_WIDTH_IN_PIXEL; x++) {
+                if (pixels[x][y].getColor() == BLACK) {
+                    System.out.print(".");
+                } else {
+                    System.out.print("X");
+                }
+            }
+            System.out.println();
+        }
+    }
 
 }

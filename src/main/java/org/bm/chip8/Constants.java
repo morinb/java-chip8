@@ -14,7 +14,7 @@ public interface Constants {
     int MEMORY_START_ADDRESS = 512;
 
     //
-    int REGISTRY_NUMBER = 0xF;
+    int REGISTRY_NUMBER = 0x10;
 
     //
     int SCREEN_WIDTH_IN_PIXEL = 64;
@@ -28,7 +28,8 @@ public interface Constants {
     int WHITE = 1;
 
     //
-    int FPS_SLEEP_TIME = 16; // 16 ms.
+    int FPS_SLEEP_TIME = 16; // 16 ms. for refresh
+    int CPU_SPEED = 4; // number of operation by cycle.
 
     //
     int OPCODES_NUMBER = 35;
